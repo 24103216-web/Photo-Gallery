@@ -1,37 +1,37 @@
-/* 
-  Hàm 1: Khi di chuột vào hình ảnh (onmouseover)
-  - Cập nhật đường dẫn ảnh nền (backgroundImage) của phần tử #image thành src của ảnh được di chuột vào.
-  - Cập nhật nội dung văn bản (innerHTML) của phần tử #image thành alt của ảnh đó.
-*/
-function upDate(previewPic) {
-    // 1. Kiểm tra xem sự kiện có kích hoạt đúng không
-    console.log("Di chuột vào ảnh:", previewPic.alt, previewPic.src);
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
 
-    // 2. Lấy phần tử có id là 'image'
-    let imageDiv = document.getElementById('image');
+    <div id="image">
+        Hover over an image below to display here.
+    </div>
 
-    // 3. Thay đổi ảnh nền
-    imageDiv.style.backgroundImage = "url('" + previewPic.src + "')";
+    <div class="gallery">
+        <img class="preview" 
+             alt="Styling with a Styling Brush" 
+             src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" 
+             onmouseover="upDate(this)" 
+             onmouseout="unDo()">
 
-    // 4. Thay đổi nội dung chữ thành thuộc tính alt của ảnh
-    imageDiv.innerHTML = previewPic.alt;
-}
+        <img class="preview" 
+             alt="With a Natural Hair Brush" 
+             src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=500" 
+             onmouseover="upDate(this)" 
+             onmouseout="unDo()">
 
-/* 
-  Hàm 2: Khi di chuột rời khỏi hình ảnh (onmouseout)
-  - Khôi phục ảnh nền của #image về trạng thái ban đầu (rỗng).
-  - Khôi phục dòng chữ ban đầu của #image.
-*/
-function unDo() {
-    // 1. Kiểm tra xem sự kiện có kích hoạt đúng không
-    console.log("Rời chuột khỏi ảnh");
+        <img class="preview" 
+             alt="New Sprout" 
+             src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=500" 
+             onmouseover="upDate(this)" 
+             onmouseout="unDo()">
+    </div>
 
-    // 2. Lấy phần tử có id là 'image'
-    let imageDiv = document.getElementById('image');
-
-    // 3. Đặt lại ảnh nền về rỗng
-    imageDiv.style.backgroundImage = "url('')";
-
-    // 4. Khôi phục dòng chữ ban đầu
-    imageDiv.innerHTML = "Di chuột qua một hình ảnh bên dưới để hiển thị ở đây.";
-}
+</body>
+</html>
